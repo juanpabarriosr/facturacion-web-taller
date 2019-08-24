@@ -134,10 +134,12 @@ public class EmpresaTest {
 		empresa.setDireccion(direccion);
 		empresa.setCelular(celular);
 		
-		String valorEperado = "Empresa(id=10, ruc=20440158877, razonSocial=JB ENTERPRISE GROUP, razonSocialComercial=JB GROUP, direccion=Av. Aramburú 800, celular=999999911)";
+		String valorEsperado = "Empresa(id=10, ruc=20440158877, "
+				+ "razonSocial=JB ENTERPRISE GROUP, razonSocialComercial=JB GROUP, "
+				+ "direccion=Av. Aramburú 800, celular=999999911)";
 		String valorObtenido = empresa.toString(); //TODO: completar
 		
-		Assert.assertEquals(valorEperado, valorObtenido);
+		Assert.assertEquals(valorEsperado, valorObtenido);
 		
 	}
 	

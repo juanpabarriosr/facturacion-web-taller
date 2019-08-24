@@ -31,11 +31,39 @@ public class UsuarioTest {
 	@Test
 	public void validacionCreacionUsuarioExitoso() {
 		//TODO: implementar prueba unitaria
+		Usuario usuario = new Usuario();
+		int id = 12;
+		String nombres = "Juan Pablo";
+		String apellidos = "Perez Gonzales";
+		String email = "juan@gmail.com";
+
+		usuario.setId(id);
+		usuario.setNombres(nombres);
+		usuario.setApellidos(apellidos);
+		usuario.setEmail(email);
+
+
+		Set<ConstraintViolation<Usuario>> constraintViolations = validator.validate(usuario);
+		assertThat(constraintViolations.size(), is(0));
 	}
 	
 	@Test
 	public void validacionCreacionUsuarioCuandoEmailEsVacio() {
-		//TODO: implementar prueba de integraciòn
+		//TODO: implementar prueba de integración
+		Usuario usuario = new Usuario();
+		int id = 12;
+		String nombres = "Juan Pablo";
+		String apellidos = "Perez Gonzales";
+		String email = "";
+
+		usuario.setId(id);
+		usuario.setNombres(nombres);
+		usuario.setApellidos(apellidos);
+		usuario.setEmail(email);
+
+
+		Set<ConstraintViolation<Usuario>> constraintViolations = validator.validate(usuario);
+		assertThat(constraintViolations.size(), is(1));
 	}
 	
 }

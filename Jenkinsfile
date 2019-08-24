@@ -1,17 +1,17 @@
 node {
 
-	stage('Descargar Fuentes'){
+	stage('Clonar repositorio Git'){
 		//Instrucciones...
-		echo 'Descargando Fuentes ...'
-		git '/c/fuentes/facturacion-web'
+		echo 'Clonar repositorio Git ...'
+		git '/c/fuentes/facturacion-web-taller'
 	}
 	
-	stage('Compilar'){
+	stage('Compilar Proyecto'){
 		//Instrucciones
-		echo 'Compilando ...'
+		echo 'Compilando el proyecto'
 		bat 'mvn clean compile'
 	}
-
+	
 	stage('Pruebas Unitarias'){
 		//Instrucciones
 		echo 'Ejecutando Pruebas Unitarias ...'
@@ -19,3 +19,4 @@ node {
 		junit '**/target/surefire-reports/*.xml'
 	}
 }
+
